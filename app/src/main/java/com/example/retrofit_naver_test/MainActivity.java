@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private final String TAG = this.getClass().getSimpleName();
 
-    private final String BASEURL = "https://openapi.naver.com/v1/";
+    private final String BASEURL = "https://openapi.naver.com/";
     private String client_id = "g77o0632rEdwZNPM9S2i";
     private String client_pw = "ZbTjii_qWZ";
     private Retrofit retrofit;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     void getResultSearch()
     {
         RetrofitNaverApi retrofitApi = retrofit.create(RetrofitNaverApi.class);
-        Call<String> call = retrofitApi.getSearchResult(client_id, client_pw, "book.json", "안드로이드");
+        Call<String> call = retrofitApi.getSearchResult(client_id,client_pw, "안드로이드",100,1);
         call.enqueue(new Callback<String>()
         {
             @Override
